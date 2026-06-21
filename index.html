@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#315cff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Bingo">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <title>POC - Gerador de Cartela de Bingo</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <section class="panel">
+      <div>
+        <p class="eyebrow">POC</p>
+        <h1>Gerador de Cartela de Bingo</h1>
+        <p class="description">
+          Gere uma cartela aleatória e toque nos números para marcar ou desmarcar.
+        </p>
+      </div>
+
+      <div class="actions">
+        <button id="new-card-button" type="button">Gerar nova cartela</button>
+        <button id="clear-button" type="button">Limpar marcações</button>
+      </div>
+    </section>
+
+    <section class="bingo-card" aria-label="Cartela de bingo">
+      <div class="bingo-header" aria-hidden="true">
+        <div>B</div>
+        <div>I</div>
+        <div>N</div>
+        <div>G</div>
+        <div>O</div>
+      </div>
+
+      <div id="bingo-grid" class="bingo-grid"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./service-worker.js");
+      });
+    }
+  </script>
+</body>
+</html>
