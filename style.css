@@ -1,0 +1,153 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f6fb;
+  color: #172033;
+}
+
+.app {
+  width: min(920px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.panel {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: flex-end;
+  margin-bottom: 28px;
+  padding: 28px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(23, 32, 51, 0.08);
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #53627d;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.05;
+}
+
+.description {
+  max-width: 540px;
+  margin: 12px 0 0;
+  color: #53627d;
+  line-height: 1.5;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+button {
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 18px;
+  font-weight: 700;
+  cursor: pointer;
+  color: #ffffff;
+  background: #315cff;
+}
+
+button:hover {
+  filter: brightness(0.95);
+}
+
+#clear-button {
+  color: #315cff;
+  background: #e8edff;
+}
+
+.bingo-card {
+  overflow: hidden;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 12px 30px rgba(23, 32, 51, 0.08);
+}
+
+.bingo-header,
+.bingo-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.bingo-header {
+  background: #172033;
+  color: #ffffff;
+}
+
+.bingo-header div {
+  padding: 18px 0;
+  text-align: center;
+  font-size: clamp(28px, 6vw, 58px);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.bingo-cell {
+  min-height: 110px;
+  border: 1px solid #e5e9f2;
+  display: grid;
+  place-items: center;
+  font-size: clamp(24px, 5vw, 42px);
+  font-weight: 800;
+  color: #172033;
+  background: #ffffff;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 120ms ease, background 120ms ease, color 120ms ease;
+}
+
+.bingo-cell:hover {
+  transform: scale(0.98);
+  background: #f8faff;
+}
+
+.bingo-cell.marked {
+  color: #ffffff;
+  background: #1b9c63;
+}
+
+.bingo-cell.free {
+  font-size: clamp(18px, 4vw, 30px);
+  color: #315cff;
+  background: #e8edff;
+}
+
+.bingo-cell.free.marked {
+  color: #ffffff;
+  background: #1b9c63;
+}
+
+@media (max-width: 720px) {
+  .panel {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .actions {
+    justify-content: flex-start;
+  }
+
+  .bingo-cell {
+    min-height: 76px;
+  }
+}
